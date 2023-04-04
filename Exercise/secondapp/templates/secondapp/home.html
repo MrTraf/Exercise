@@ -1,0 +1,33 @@
+{% extends 'secondapp/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet"  href="{% static 'secondapp/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>
+  This is a list of Excercises
+</h1>
+<h2>
+<a href="{% url 'input' %}"> Take me to input page</a>
+<h2>
+<table>
+  <tr>
+    <th> Exercise </th>
+    <th> Repeat </th> 
+    <th> Weight </th>   
+  </tr>
+ </tr>
+  {% for key in exercise %}
+    <tr>
+      <td><p>{{ key.exercise_name }}</p></td>
+      <td><p>{{ key.repeat}}</p></td>
+      <td><p>{{ key.weight}}</p> </td>
+    </tr>  
+    {% endfor %}
+<table>
+
+{% endblock %}
+
+

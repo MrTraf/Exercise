@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+{% load static %}
+<h1>
+  This is a where you have to insert your Excercises
+</h1>
+<a href = "{% url 'display' %}"> Take me to Data base</a>
+<p>Input exercise data here</p>
+
+<body>
+  
+  <hr/>
+  <form method ="POST">
+      {% csrf_token %}
+  ex_name :<input type = "text" placeholder="Enter exercise name" name = "ex_name" required/><br/>
+  reps :<input type = "text" placeholder="Enter number of reps" name = "reps" required/><br/>
+  weight :<input type = "text" placeholder="enter weight" name = "weight"required/><br>
+  <input type = "submit" value = "Put in table"/>
+  {% if messages %}  
+  {% for message in messages %}
+   <h2> {{message}} </h2>
+  {% endfor %}
+  {% endif %}
+  </form>
+  <hr/>
+<body>
+</form>

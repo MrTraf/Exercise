@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'secondapp/base.html' %}
+
+{% load static %}
+
+{% block head %}
+{% block content %}
+<link rel="stylesheet"  href="{% static 'secondapp/style.css' %}">
+{% endblock %}
+<a href="{% url 'second_input' %}"> Take me to input page</a>
+<html lang="en">
+<h1> This is a list of Excercises</h>
+<head>
+  <title>Display all I have</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+<div class="container">
+<table class="table table-striped">
+  <thead>
+   <tr>
+    <th>name</th>
+	<th>reps</th>
+	<th>weight</th>
+   </tr>
+  </thead>
+  <tbody>
+   {% for sts in st %}  
+   <tr>
+     <td>{{sts.ex_name}}</td>
+     <td>{{sts.reps}}</td>
+     <td>{{sts.weight}}</td>
+   </tr>
+     {% endfor %} 
+    </tbody>
+</table>	
+</div>
+</body>
+</html>
+{% endblock %}

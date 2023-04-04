@@ -1,0 +1,38 @@
+
+from django.shortcuts import render
+from secondapp.forms import TestExerciseForm
+
+# Create your views here.
+exercise = [
+  { 'exercise_name' : 'squats','repeat':'10', 'weight' : '60'},
+  { 'exercise_name' : 'wallball','repeat': '12', 'weight' : '10'},
+  { 'exercise_name' : 'pull ups','repeat': '7', 'weight' : '0'},
+  { 'exercise_name' : 'overheads','repeat': '5', 'weight' : '40'},
+  { 'exercise_name' : 'wheel','repeat': '4', 'weight' : '0'},
+  { 'exercise_name' : 'thruster','repeat': '1', 'weight' : '50'},
+  { 'exercise_name' : 'snatch','repeat': '1', 'weight' : '53'}
+
+]
+
+
+
+
+
+def home(request):
+ # The context is all of the variables we want passed into the template.
+  context = {"exercise" : exercise}
+  return render(request, 'secondapp/home.html', context)
+
+def input(request):
+ # The context is all of the variables we want passed into the template.
+  form = TestExerciseForm() 
+  return render(request, 'secondapp/input.html',
+			 {'form': form})
+
+#23.03.2023
+#from secondapp.forms import TestExerciseForm
+#def home(request):
+# form = TestExerciseForm() #instantiate a new form here
+ # return render(request,
+  #        'secondapp/home.html',
+   #       {'form': form}) # pass that form to the template
