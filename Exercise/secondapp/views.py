@@ -23,9 +23,10 @@ exercise = [
 
 def home(request):
  # The context is all of the variables we want passed into the template.
-  context = {"exercise" : exercise}
-  return render(request, 'secondapp/home.html', context)
-
+  #context = {"exercise" : exercise}
+  #return render(request, 'secondapp/home.html', context)
+  st = exersice_sec.objects.all()  # Collect all records from table
+  return render(request, 'secondapp/display.html', {'st': st})
 def input(request):
  # The context is all of the variables we want passed into the template.
  #it was here form = TestExerciseForm() 
@@ -63,7 +64,7 @@ def input(request):
 #from .models import exersice_sec
 ###    return render(request,'second_input.html',{'msg':'Data insert'})
 #
-def Insertrecord(request): #change it! use slack
+def Insert_record(request): #change it! use slack
  if request.method=='POST':
     if request.POST.get('ex_name') and request.POST.get('reps') and request.POST.get('weight'):
        saverecord=exersice_sec()
